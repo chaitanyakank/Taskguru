@@ -1,0 +1,8 @@
+node_modules/
+dist/
+venv/
+.env
+firebase-adminsdk.json
+__pycache__/
+*.log
+docker-compose.override.yml

@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./taskguru-frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./firebase-adminsdk.json:/app/firebase-adminsdk.json
+    environment:
+      FIREBASE_CRED_PATH: /app/firebase-adminsdk.json
